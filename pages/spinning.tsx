@@ -1,10 +1,9 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "react-three-fiber";
 import * as THREE from "three";
-import { GroupProps } from "@react-three/fiber";
 
-function Sphere({ position }: { position: [number, number, number] }) {
-  const meshRef = useRef<THREE.Mesh>();
+function Sphere({ position }) {
+  const meshRef = useRef();
 
   useFrame(() => {
     meshRef.current.rotation.x += 0.01;
@@ -12,12 +11,10 @@ function Sphere({ position }: { position: [number, number, number] }) {
   });
 
   return (
-    <group position={position}>
-      <mesh ref={meshRef}>
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshStandardMaterial metalness={1} roughness={0} />
-      </mesh>
-    </group>
+    <mesh ref={meshRef} position={position}>
+      <sphereGeometry args={[1, 32, 32]} />
+      <meshStandardMaterial metalness={1} roughness={0.5} />
+    </mesh>
   );
 }
 

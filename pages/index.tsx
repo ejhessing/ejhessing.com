@@ -7,9 +7,11 @@ import ThreeScene from "./spinning";
 const Home: NextPage = () => {
   return (
     <div className="text-3xl font-bold flex justify-center items-center h-screen bg-[#1da1f2] text-white">
-      {/* <div>{"Heya, I'm EJ"}</div> */}
-      <div className="h-full w-full">
-        <ThreeScene />
+      <div className="flex flex-col w-full h-full justify-center items-center flex-1">
+        <div className="mt-20">{"Heya, I'm EJ"}</div>
+        <div className="">
+          <ThreeScene />
+        </div>
       </div>
     </div>
   );
