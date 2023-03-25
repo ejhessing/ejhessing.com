@@ -7,6 +7,7 @@ const SpinningHex: React.FC<SpinningBallProps> = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseOver, setIsMouseOver] = useState(false);
   const isMouseOverRef = useRef(isMouseOver);
+  const mouse = new THREE.Vector2();
 
   useEffect(() => {
     isMouseOverRef.current = isMouseOver;
@@ -107,8 +108,9 @@ const SpinningHex: React.FC<SpinningBallProps> = () => {
     function onDocumentMouseMove(event: { clientX: number; clientY: number }) {
       const windowHalfX = window.innerWidth / 2;
       const windowHalfY = window.innerHeight / 2;
-      mouseX = event.clientX - windowHalfX;
-      mouseY = event.clientY - windowHalfY;
+
+      mouse.x = (event.clientX - windowHalfX) / windowHalfX;
+      mouse.y = -(event.clientY - windowHalfY) / windowHalfY;
     }
 
     const animate = () => {
@@ -121,6 +123,9 @@ const SpinningHex: React.FC<SpinningBallProps> = () => {
         mesh.rotation.y += 0.01;
       } else {
         mesh.rotation.y -= 0.01;
+
+        light.position.set(mouse.x * 2, mouse.y * 2, 1);
+        light.position.normalize();
       }
 
       renderer.render(scene, camera);
