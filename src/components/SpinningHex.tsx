@@ -69,7 +69,7 @@ const SpinningHex: React.FC<SpinningBallProps> = () => {
         color: 0xffffff,
         flatShading: true,
         vertexColors: true,
-        shininess: 20,
+        shininess: 80,
       });
 
       mesh = new THREE.Mesh(geometry, material);
@@ -120,9 +120,9 @@ const SpinningHex: React.FC<SpinningBallProps> = () => {
 
     const render = () => {
       if (!isMouseOverRef.current) {
-        mesh.rotation.y += 0.01;
+        mesh.rotation.y += 0.03;
       } else {
-        mesh.rotation.y -= 0.01;
+        mesh.rotation.y += 0.01;
 
         light.position.set(mouse.x * 2, mouse.y * 2, 1);
         light.position.normalize();
