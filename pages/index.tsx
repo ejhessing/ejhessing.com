@@ -4,22 +4,23 @@ import Image from "next/image";
 import { DesktopNavigation } from "../src/components/Nav";
 import SpinningHex from "../src/components/SpinningHex";
 import styles from "../styles/Home.module.css";
-import SpinningBall from "./spinning";
 
 const Home: NextPage = () => {
   return (
-    <div className="text-3xl font-bold flex justify-center items-center h-screen bg-[#1da1f2] text-white">
-      {/* <DesktopNavigation /> */}
+    <div className="text-3xl font-bold flex justify-center items-center h-screen bg-gray-800 text-white">
       <div className="flex flex-col w-full h-full justify-center items-center flex-1">
-        <div className="w-full h-full flex">
-          <div className="flex flex-col w-1/3 h-full justify-center items-center flex-1 bg-gray-800 pl-20">
+        <div className="w-full h-full flex flex-col md:flex-row">
+          <div className="w-full h-1/2 md:w-1/2 md:h-full flex justify-center items-center md:order-2">
+            <SpinningHex />
+          </div>
+          <div className="flex flex-col w-full px-5 md:w-1/2 h-full justify-center items-center md:items-start md:pl-20 bg-gray-800">
             <h1 className="w-full text-4xl font-bold ">
-              Hi, I'm Erwin Hessing (EJ)!
+              {`Hi, I'm Erwin Hessing (EJ)!`}
             </h1>
-            <p className="text-xl mr-20 mt-10 ">
-              I'm a proud father, loving husband, avid gamer, and passionate
+            <p className="text-xl md:mr-20 mt-10 ">
+              {`I'm a proud father, loving husband, avid gamer, and passionate
               basketball fan. When I'm not spending time with my family or
-              enjoying my hobbies, I work as a software engineer.
+              enjoying my hobbies, I work as a software engineer.`}
             </p>
             <a
               href="mailto:ejhessing@gmail.com"
@@ -27,12 +28,6 @@ const Home: NextPage = () => {
             >
               Contact me
             </a>
-          </div>
-
-          <div className="w-1/2 h-full">
-            {/* <SpinningBall id={Date.now()} />
-             */}
-            <SpinningHex />
           </div>
         </div>
       </div>

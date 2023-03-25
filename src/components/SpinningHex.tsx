@@ -57,8 +57,8 @@ const SpinningHex: React.FC<SpinningBallProps> = () => {
       );
 
       const color = new THREE.Color();
-      const positions = geometry.attributes.position;
-      const colors = geometry.attributes.color;
+      const positions = geometry.attributes.position as THREE.BufferAttribute;
+      const colors = geometry.attributes.color as THREE.BufferAttribute;
 
       for (let i = 0; i < count; i++) {
         color.setHSL(0.65, (positions.getY(i) / radius + 1) / 2, 0.5);
