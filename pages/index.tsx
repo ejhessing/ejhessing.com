@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import SpinningHex from "../src/components/SpinningHex";
 import styles from "../styles/Home.module.css";
 import SpinningBall from "./spinning";
 
@@ -13,7 +14,9 @@ const Home: NextPage = () => {
             {"Heya, I'm EJ"}
           </div>
           <div className="w-1/2 h-1/2">
-            <SpinningBall id={Date.now()} />
+            {/* <SpinningBall id={Date.now()} />
+             */}
+            <SpinningHex />
           </div>
         </div>
       </div>
