@@ -5,13 +5,17 @@ import Image from "next/image";
 
 import styles from "../styles/Home.module.css";
 
+const SpinningHex = dynamic(() => import("../src/components/SpinningHex"), {
+  ssr: false,
+});
+
 const Home: NextPage = () => {
   return (
     <div className="text-3xl font-bold flex justify-center items-center h-screen bg-gray-800 text-white">
       <div className="flex flex-col w-full h-full justify-center items-center flex-1">
         <div className="w-full h-full flex flex-col md:flex-row">
           <div className="w-full h-1/2 md:w-1/2 md:h-full flex justify-center items-center md:order-2">
-            {/* <SpinningHex /> */}
+            <SpinningHex />
           </div>
           <div className="flex flex-col w-full px-5 md:w-1/2 h-full justify-center items-center md:items-start md:pl-20 bg-gray-800">
             <h1 className="w-full text-4xl font-bold ">
