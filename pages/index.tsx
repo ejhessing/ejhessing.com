@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "../styles/Home.module.css";
 
@@ -26,9 +27,14 @@ const Home: NextPage = () => {
               basketball fan. When I'm not spending time with my family or
               enjoying my hobbies, I work as a software engineer.`}
             </p>
+            <Link href="/projects">
+              <a className="text-2xl text-left mt-20 text-gray-300 rounded-2xl w-full flex justify-start">
+                Projects
+              </a>
+            </Link>
             <a
               href="mailto:ejhessing@gmail.com"
-              className="text-2xl text-left my-20 text-gray-300  rounded-2xl w-full flex justify-start"
+              className="text-2xl text-left my-5 text-gray-300  rounded-2xl w-full flex justify-start"
             >
               Contact me
             </a>
