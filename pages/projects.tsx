@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import { Fragment } from "react";
-import { Tab } from "@headlessui/react";
 
 const ElementalChess = dynamic(() => import("../src/games/ElementalChess"), {
   ssr: false,

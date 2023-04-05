@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Board from "./components/Board";
-import { BoardState } from "./components/Board";
-import { PieceType } from "./components/Board/Piece";
-import Instructions from "./components/Instructions";
-import { isMoveValid } from "./components/Rules";
+// import Board from "../../../test/components/Board";
+// import { BoardState } from "../../../test/components/Board";
+// import { PieceType } from "../../../test/components/Board/Piece";
+// import { isMoveValid } from "../../../test/components/Rules";
+import Instructions from "./Instructions";
 
 interface AppProps {
   width: number;
@@ -11,55 +11,55 @@ interface AppProps {
 }
 
 const App: React.FC<AppProps> = ({ width, height }) => {
-  const [boardState, setBoardState] = useState<BoardState>([
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-  ]);
-  const [currentPlayer, setCurrentPlayer] = useState<PieceType>("fire");
-  const [selectedPiece, setSelectedPiece] = useState<{
-    row: number;
-    col: number;
-  } | null>(null);
+  // const [boardState, setBoardState] = useState<BoardState>([
+  //   [null, null, null, null, null, null, null],
+  //   [null, null, null, null, null, null, null],
+  //   [null, null, null, null, null, null, null],
+  //   [null, null, null, null, null, null, null],
+  //   [null, null, null, null, null, null, null],
+  //   [null, null, null, null, null, null, null],
+  //   [null, null, null, null, null, null, null],
+  // ]);
+  // const [currentPlayer, setCurrentPlayer] = useState<PieceType>("fire");
+  // const [selectedPiece, setSelectedPiece] = useState<{
+  //   row: number;
+  //   col: number;
+  // } | null>(null);
 
-  const handlePieceClick = (row: number, col: number) => {
-    if (!selectedPiece) {
-      // First click - select piece
-      if (boardState[row][col]?.type === currentPlayer) {
-        setSelectedPiece({ row, col });
-      }
-    } else {
-      // Second click - move piece
-      const targetRow = row;
-      const targetCol = col;
-      const isMoveValidResult = isMoveValid(
-        boardState,
-        currentPlayer,
-        selectedPiece.row,
-        selectedPiece.col,
-        targetRow,
-        targetCol
-      );
+  // const handlePieceClick = (row: number, col: number) => {
+  //   if (!selectedPiece) {
+  //     // First click - select piece
+  //     if (boardState[row][col]?.type === currentPlayer) {
+  //       setSelectedPiece({ row, col });
+  //     }
+  //   } else {
+  //     // Second click - move piece
+  //     const targetRow = row;
+  //     const targetCol = col;
+  //     const isMoveValidResult = isMoveValid(
+  //       boardState,
+  //       currentPlayer,
+  //       selectedPiece.row,
+  //       selectedPiece.col,
+  //       targetRow,
+  //       targetCol
+  //     );
 
-      if (isMoveValidResult) {
-        // Update the board state with the new position of the piece
-        const newBoardState = boardState.map((row) => [...row]);
-        newBoardState[targetRow][targetCol] =
-          newBoardState[selectedPiece.row][selectedPiece.col];
-        newBoardState[selectedPiece.row][selectedPiece.col] = null;
-        setBoardState(newBoardState);
+  //     if (isMoveValidResult) {
+  //       // Update the board state with the new position of the piece
+  //       const newBoardState = boardState.map((row) => [...row]);
+  //       newBoardState[targetRow][targetCol] =
+  //         newBoardState[selectedPiece.row][selectedPiece.col];
+  //       newBoardState[selectedPiece.row][selectedPiece.col] = null;
+  //       setBoardState(newBoardState);
 
-        // Switch to the next player's turn
-        setCurrentPlayer(currentPlayer === "fire" ? "water" : "fire");
-      }
+  //       // Switch to the next player's turn
+  //       setCurrentPlayer(currentPlayer === "fire" ? "water" : "fire");
+  //     }
 
-      setSelectedPiece(null);
-    }
-  };
+  //     setSelectedPiece(null);
+  //   }
+  // };
 
   return (
     <div className="flex justify-center items-center h-screen flex-col m-20">
